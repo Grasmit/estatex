@@ -1,0 +1,82 @@
+<app-header></app-header>
+<div class="profile-container" *ngIf="userDetails;">
+  <div class="profile-header">
+    <div class="profile-left">
+      <img src="https://compote.slate.com/images/b4acd613-b4b0-42bd-bdfe-89fc55985608.jpeg?crop=4778%2C3185%2Cx258%2Cy703&width=1280" alt="Profile Image" class="profile-image" />
+      <h1>{{ userDetails.username }}</h1>
+    </div>
+    <div class="profile-right">
+      <div class="profile-details">
+        <p><strong>Email:</strong> {{ userDetails.email }}</p>
+        <p><strong>Verified:</strong> {{ userDetails.verified ? 'Yes' : 'No' }}</p>
+        <p><strong>Rating:</strong> {{ userDetails.rating }}</p>
+        <p><strong>Type:</strong> {{ getUserType(userDetails.type) }}</p>
+      </div>
+      <div class="profile-actions" *ngIf="isCurrentUser">
+        <button class="primary-button" (click)="navigateTo('/users/update', userDetails.id)">Update Profile</button>
+        <button class="primary-button" (click)="navigateTo('properties/create')">Create Property</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation-buttons">
+    <button class="nav-button" (click)="changeSection('messages')" *ngIf="isCurrentUser">Chats</button>
+    <button class="nav-button" (click)="changeSection('properties')">Properties</button>
+    <button class="nav-button" (click)="changeSection('listings')">Listings</button>
+  </div>
+
+  <div class="dynamic-content">
+    <div class="dynamic-content">
+      <div *ngIf="currentSection === 'messages' && isCurrentUser">
+        <div class="chats">
+          <h2>Chats</h2>
+          <div *ngFor="let chat of chats" class="chat-box">
+            <button class="chat-button" (click)="navigateToChat(chat.chatId)">
+              <p><strong>Chat with:</strong> {{ chat.otherParticipantUsername }}</p>
+              <p><strong>Last Message:</strong> {{ chat.lastMessageAt | date:'short' }}</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    <div *ngIf="currentSection === 'properties'">
+      <h2>Properties</h2>
+      <div *ngIf="properties.length > 0; else noProperties">
+        <div *ngFor="let property of properties" class="card property-card">
+          <h3>{{ getPropertyType(+property.type) }}</h3>
+          <p><strong>Address:</strong> {{ property.address.street }}, {{ property.address.city }}</p>
+          <div class="actions" *ngIf="isCurrentUser">
+            <button class="btn-primary" (click)="makeListing(property)">Make Listing</button>
+            <button class="btn-secondary" (click)="updateProperty(property)">Update</button>
+            <button class="btn-danger" (click)="deleteProperty(property.id || ' ')">Delete</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noProperties>
+        <p>No properties found.</p>
+      </ng-template>
+    </div>
+    <div *ngIf="currentSection === 'listings'">
+      <h2>Listings</h2>
+      <div *ngIf="listings.length > 0; else noListings">
+        <div *ngFor="let listing of listings" class="card listing-card">
+          <h3>{{ listing.description }}</h3>
+          <p><strong>Price:</strong> {{ listing.price | currency }}</p>
+          <div class="actions" *ngIf="isCurrentUser">
+            <button class="btn-primary" (click)="updateListing(listing)">Update</button>
+            <button class="btn-danger" (click)="deleteListing(listing.id || ' ')">Delete</button>
+            <button class="btn-waiting">View</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noListings>
+        <p>No listings found.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading user details...</p>
+</ng-template>
+<app-footer></app-footer>
+

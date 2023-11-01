@@ -1,0 +1,47 @@
+<div class="listing-list">
+    <h1>Listing List</h1>
+  
+    <button (click)="navigateToCreate()">Create New Listing</button>
+    <div class="pagination-controls">
+      <label for="page">Page:</label>
+      <select id="page" [(ngModel)]="page" (change)="loadListings()">
+        <option *ngFor="let p of pages" [value]="p">{{ p }}</option>
+      </select>
+  
+      <label for="pageSize">Page Size:</label>
+      <select id="pageSize" [(ngModel)]="pageSize" (change)="loadListings()">
+        <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+      </select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Property ID</th>
+          <th>User ID</th>
+          <th>Price</th>
+          <th>Publication Date</th>
+          <th>Description</th>
+          <th>Properties</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let listing of listings">
+          <td>{{ listing.propertyId }}</td>
+          <td>{{ listing.price }}</td>
+          <td>{{ listing.publicationDate | date }}</td>
+          <td>{{ listing.description }}</td>
+          <td>
+            <ul>
+              <li>{{ 'IsSold' }}: {{ listing.features.IsSold ? 'Yes' : 'No' }}</li>
+              <li>{{ 'IsHighlighted' }}: {{ listing.features.IsHighlighted ? 'Yes' : 'No' }}</li>
+              <li>{{ 'IsDeleted' }}: {{ listing.features.IsDeleted ? 'Yes' : 'No' }}</li>
+            </ul>
+          </td>
+          <td>
+            <button (click)="navigateToUpdate(listing.propertyId)">Update</button>
+            <button (click)="deleteListing(listing.propertyId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>  

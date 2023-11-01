@@ -1,0 +1,304 @@
+.container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.record-list h1 {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: 600; /* Optional: Adjust the weight for thinner text */
+  color: #333; /* Optional: Change color if needed */
+  margin-bottom: 10px; /* Reduce spacing below the title */
+}
+.no-records {
+  width: 500px;
+  height: 200px;
+  margin: 50px auto; /* Centers the box horizontally */
+  padding: 20px;
+  text-align: center;
+  border: 2px dashed #ccc; /* Dashed border for emphasis */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-family: Arial, sans-serif;
+  color: #555; /* Dark gray text */
+}
+
+.no-records h2 {
+  font-size: 24px;
+  color: #333; /* Slightly darker text for the heading */
+  margin: 0;
+  line-height: 200px; /* Vertically centers the text */
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 3fr; /* Shrink the left column further */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start; /* Aligns both components at the top */
+}
+
+app-news {
+  margin-left: -50px; /* Moves the news component closer to the left edge */
+  padding-left: 10px; /* Optional: Adjust padding if content looks too close */
+}
+
+.record-list {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.pagination-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  font-size: 14px;
+  min-width: 80px;
+}
+
+.page-info {
+  color: #666;
+  font-size: 14px;
+}
+
+.filters-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filters-button:hover {
+  background: #0056b3;
+}
+
+
+.compare-active {
+  background-color: red;
+  color: white;
+}
+
+.scroll-container {
+  max-height: 500px; /* Înălțime maximă pentru scroll */
+  overflow-y: auto; /* Activare scroll vertical */
+  overflow-x: hidden; /* Dezactivare scroll orizontal */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f0f8ff; /* Light blue background */
+  width: 50rem; /* Set width to 50rem */
+}
+
+.pagination-controls, .pagination-controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-controls .filters-button {
+  margin-top: 5px; /* Position the Filters button 5px lower */
+}
+
+.pagination-controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.record-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffffff; /* White card background */
+  margin-bottom: 15px; /* Spațiu între înregistrări */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Umbră ușoară */
+}
+
+.card {
+  flex: 1 1 calc(33% - 20px); /* 3 carduri pe rând */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Umbră ușoară */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Umbră mai pronunțată la hover */
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.filter-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 90%;
+  max-width: 600px;
+  max-height: 70%; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+.filter-popup h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.filter-popup label {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+  text-align: center; /* Center align labels */
+}
+
+.filter-popup input, .filter-popup select {
+  width: calc(100% - 40px); /* Ensure equal margins on left and right */
+  padding: 10px;
+  margin: 5px 20px; /* Equal margins on left and right */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter-popup button {
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.filter-popup button:hover {
+  background-color: #218838;
+}
+
+.filter-popup .button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 20px); /* 2 carduri pe rând pe ecrane medii */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 1 1 100%; /* 1 card pe rând pe ecrane mici */
+  }
+}

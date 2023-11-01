@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="listing-update">
+  <h1>Update Listing</h1>
+  <form [formGroup]="listingForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" id="price" formControlName="price" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="features" formGroupName="features">
+      <h3>Features</h3>
+      <div class="feature-group" *ngFor="let feature of featuresList">
+        <input type="checkbox" [id]="feature" [formControlName]="feature" />
+        <label [for]="feature">{{ feature }}</label>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="listingForm.invalid">Update Listing</button>
+  </form>
+</div>
+<app-footer></app-footer>

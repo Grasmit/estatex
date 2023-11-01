@@ -1,0 +1,282 @@
+/* Profile Page Styling */
+.profile-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.profile-header:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.profile-left h1 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+.profile-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.profile-details p {
+  flex: 1 1 45%;
+  margin: 0;
+}
+
+.profile-actions {
+  padding-top: 45px;
+  border-top: 1px ;
+  display: flex;
+  gap: 10px;
+
+}
+/* Base Button Styles */
+button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Primary Button (Make Listing) */
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:active {
+  background-color: #1e40af;
+}
+
+/* Secondary Button (Update) */
+.btn-secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #4b5563;
+  box-shadow: 0 4px 10px rgba(107, 114, 128, 0.2);
+}
+
+.btn-secondary:active {
+  background-color: #374151;
+}
+
+/* Danger Button (Delete) */
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #b91c1c;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
+}
+
+.btn-danger:active {
+  background-color: #991b1b;
+}
+
+/* Disabled Button Styles */
+button:disabled {
+  background-color: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Responsive Design for Buttons */
+button {
+  min-width: 120px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  button {
+    width: 100%; /* Full-width buttons on smaller screens */
+  }
+}
+
+/* Action Buttons Container */
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+
+/* Buttons */
+.primary-button {
+  background: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button {
+  padding: 10px;
+  background: white;
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-button:hover {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Dynamic Content */
+.dynamic-content {
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dynamic-content h2 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.dynamic-content p {
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.navigation-buttons .nav-button {
+  padding: 10px 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profile-details p {
+    flex: 1 1 100%;
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.chats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-button:hover {
+  background-color: #e2e8f0;
+}
+
+.chat-button p {
+  margin: 0.5rem 0;
+}
+
+.chat-button p strong {
+  color: #2d3748;
+}

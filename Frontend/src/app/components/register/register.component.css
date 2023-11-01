@@ -1,0 +1,84 @@
+.register {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 5px; /* Reduce margin-bottom to bring error message closer */
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e6f7ff; /* Light blue input background */
+  width: 100%; /* Set input width to 100% */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem; /* Make the text smaller */
+  margin-top: 2px; /* Reduce margin-top to bring error message closer */
+  text-align: left; /* Align text to the left */
+}
+
+@media (max-width: 600px) {
+  .register {
+    padding: 15px;
+  }
+
+  input {
+    padding: 8px;
+  }
+
+  button {
+    padding: 8px;
+  }
+}

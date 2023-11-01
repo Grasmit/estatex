@@ -1,0 +1,114 @@
+.property-update {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #2563eb;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.form-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.property-update label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a365d;
+  margin-bottom: 0.5rem;
+}
+
+.property-update input,
+.property-update select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.property-update input[type="checkbox"] {
+  width: auto;
+  margin-left: 0.5rem; /* Add space between label and checkbox */
+}
+
+.feature-group {
+  display: flex; /* Display label and checkbox on the same line */
+  align-items: center; /* Align items vertically */
+}
+
+.feature-group label {
+  margin-right: 0.5rem; /* Add space between checkbox and label */
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.button-row button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-row button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-row button:hover:not(:disabled) {
+  background-color: #1a365d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-container {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns */
+  }
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    grid-template-columns: 1fr; /* Adjust to 1 column */
+  }
+
+  .form-column {
+    min-width: 100%; /* Full width for columns */
+  }
+}
+
+@media (max-width: 480px) {
+  .property-update {
+    padding: 1rem; /* Reduce padding */
+  }
+
+  .button-row button {
+    padding: 0.5rem 1rem; /* Adjust button padding */
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}

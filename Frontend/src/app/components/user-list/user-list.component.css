@@ -1,0 +1,250 @@
+.user-list {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  background-color: #0056b3;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-controls .filters-button {
+  margin-top: 5px; /* Position the Filters button 5px lower */
+}
+
+.pagination-controls-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.user-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  height: 150px; /* Fixed height for user cards */
+  width: 100%; /* Fixed width for user cards */
+  box-sizing: border-box;
+}
+
+.user-button:hover {
+  background-color: #e6f7ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-button p {
+  margin: 8px 0;
+  flex: 1 1 20%; /* Adjust the flex-basis as needed */
+}
+
+.user-button .username,
+.user-button .email {
+  flex: 1 1 100%; /* Allow full width for username and email */
+  white-space: normal; /* Allow text to wrap */
+}
+
+.user-button .username .verified {
+  margin-left: 5px;
+  color: green;
+}
+
+.user-button .rating {
+  display: flex;
+  align-items: center;
+}
+
+.user-button .rating .star {
+  color: gold;
+  margin-right: 2px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.filter-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80%; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+.filter-popup h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.filter-popup label {
+  display: block;
+  margin-top: 10px;
+  color: #555;
+  text-align: center; /* Center align labels */
+}
+
+.filter-popup input, .filter-popup select {
+  width: calc(100% - 40px); /* Ensure equal margins on left and right */
+  padding: 10px;
+  margin: 5px 20px; /* Equal margins on left and right */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filter-popup button {
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.filter-popup button:hover {
+  background-color: #218838;
+}
+
+.filter-popup .button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pagination-controls select {
+  width: 100px; /* Ensure enough width for numbers */
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.pagination-controls select:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
+
+.pagination-controls select:hover {
+  background-color: #f0f8ff; /* Light blue background on hover */
+}
+
+.pagination-controls option {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.pagination-controls option:hover {
+  background-color: #e6f7ff; /* Slightly lighter background for options */
+}
+
+.message-button {
+  background-color: #17a2b8; /* Light blue */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+  align-self: flex-end; /* Align to the bottom-right of the card */
+}
+
+.message-button:hover {
+  background-color: #138496; /* Darker blue */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message-button:active {
+  background-color: #117a8b; /* Even darker blue */
+}
+
+.user-button {
+  position: relative; /* Ensure message button aligns correctly */
+  padding-bottom: 40px; /* Make room for the button */
+}
+
+.user-button .message-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

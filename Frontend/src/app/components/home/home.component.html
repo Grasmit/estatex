@@ -1,0 +1,88 @@
+<!-- home.component.html -->
+<app-header></app-header>
+
+<div class="home">
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Find Your Dream Home</h1>
+    </div>
+  </div>
+
+<!-- Side Buttons -->
+<div class="buttons-container">
+  <button (click)="navigateTo('users')" class="side-button">
+    <i class="users-icon"></i>
+    <span>Manage Users</span>
+  </button>
+
+  <button (click)="navigateTo('users/profile')" class="side-button">
+    <i class="chat-icon"></i>
+    <span>Chats</span>
+  </button>
+
+  <button (click)="navigateTo('properties/create')" class="side-button">
+    <i class="robot-icon"></i>
+    <span>Get AI Prediction</span>
+  </button>
+</div>
+
+<div class="layout-container">
+  <!-- New Sidebar Properties -->
+
+  <div class="sidebar-properties">
+    <div
+      *ngFor="let article of sidebarArticles; let i = index"
+      class="property-article"
+      [class.active]="i === currentArticleIndex"
+      (click)="navigateTo('records')"
+    >
+      <div class="article-tag">{{article.tag}}</div>
+      <h3>{{article.title}}</h3>
+      <p class="article-preview">{{article.preview}}</p>
+      <div class="article-meta">
+        <span>{{article.date}} • {{article.readTime}}</span>
+        <span>{{article.type}}</span>
+      </div>
+      <div class="article-link">
+        Read more →
+      </div>
+    </div>
+
+    <div class="article-indicators">
+      <div
+        *ngFor="let article of sidebarArticles; let i = index"
+        class="article-indicator"
+        [class.active]="i === currentArticleIndex"
+        (click)="setCurrentArticle(i)"
+      ></div>
+    </div>
+  </div>
+
+  <!-- Property Showcase -->
+  <div class="property-showcase">
+    <div class="property-card">
+      <div class="image-section">
+        <div class="overlay"></div>
+        <img [src]="properties[currentIndex].imageId" alt="Property Image" />
+      </div>
+
+      <div class="content-section">
+        <h2>{{properties[currentIndex].title}}</h2>
+        <p class="location">{{properties[currentIndex].location}}</p>
+        <p class="price">{{properties[currentIndex].price}}</p>
+        <p class="features">{{properties[currentIndex].features}}</p>
+        <p class="description">{{properties[currentIndex].description}}</p>
+
+        <button class="view-details" (click)="navigateTo('records')">
+          View More
+        </button>
+      </div>
+
+      <!-- Progress Indicators -->
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

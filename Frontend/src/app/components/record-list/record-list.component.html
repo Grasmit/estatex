@@ -1,0 +1,123 @@
+<app-header></app-header>
+<div class="main-container">
+  <app-news></app-news>
+
+  <div class="record-list">
+    <h1>Properties</h1>
+
+    <div class="pagination-controls">
+      <div class="pagination-group">
+        <div class="select-container">
+          <label for="page">Page:</label>
+          <select id="page" [(ngModel)]="page" (change)="loadRecords()" class="pagination-select">
+            <option *ngFor="let p of pages" [value]="p">{{ p }}</option>
+          </select>
+          <span class="page-info">of {{ pages.length }}</span>
+        </div>
+
+        <div class="select-container">
+          <label for="pageSize">Items per page:</label>
+          <select id="pageSize" [(ngModel)]="pageSize" (change)="loadRecords()" class="pagination-select">
+            <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="filters-button" (click)="toggleFilterPopup()">
+        <i class="fas fa-filter"></i> Filters
+      </button>
+    </div>
+
+    <!-- Keep your existing filter popup and records list code here -->
+    <div *ngIf="showFilterPopup" class="overlay" (click)="toggleFilterPopup()"></div>
+  <div *ngIf="showFilterPopup" class="filter-popup">
+  <h2>Filters</h2>
+
+  <!-- Tipul proprietății -->
+  <label for="pType">Property Type</label>
+  <select id="pType" [(ngModel)]="filter.pType">
+    <option value="">All</option>
+    <option *ngFor="let pType of pTypes" [value]="pType">{{ pType }}</option>
+  </select>
+
+  <!-- Oraș -->
+  <label for="city">City</label>
+  <input type="text" id="city" [(ngModel)]="filter.city" placeholder="Enter city name" />
+
+
+  <!-- Preț minim/maxim -->
+  <label for="minPrice">Min Price</label>
+  <input type="number" id="minPrice" [(ngModel)]="filter.minPrice" />
+
+  <label for="maxPrice">Max Price</label>
+  <input type="number" id="maxPrice" [(ngModel)]="filter.maxPrice" />
+
+  <!-- Date de publicare -->
+  <label for="minPublicationDate">Min Publication Date</label>
+  <input type="date" id="minPublicationDate" [(ngModel)]="filter.minPublicationDate" />
+
+  <label for="maxPublicationDate">Max Publication Date</label>
+  <input type="date" id="maxPublicationDate" [(ngModel)]="filter.maxPublicationDate" />
+
+  <!-- Căutare în descriere -->
+  <label for="descriptionContains">Description Contains</label>
+  <input type="text" id="descriptionContains" [(ngModel)]="filter.descriptionContains" />
+
+  <button (click)="applyFilters()">Apply Filters</button>
+  <button (click)="toggleFilterPopup()">Close</button>
+</div>
+
+
+  <!-- Scrollable Container -->
+  <div class="scroll-container">
+    <!-- Record List -->
+    <div *ngFor="let record of records" class="record-card">
+      <!-- Property Card -->
+      <div class="card">
+        <h3>Property type: {{ getPropertyType(record.property.type) }}</h3>
+        <p>Address: {{ record.address.street }}, {{ record.address.city }}</p>
+        <p>ImageId: {{ record.property.imageId }}</p>
+        <p>Features:</p>
+        <ul>
+          <li *ngFor="let feature of getFeatures(record.property.features)">
+            {{ feature.key }}: {{ feature.value }}
+          </li>
+        </ul>
+        <button
+          (click)="addToCompare(record.property.id)"
+          [disabled]="blockButtonIfNotInCompareList(record.property.id)"
+          [ngClass]="{'compare-active': isInCompareList(record.property.id)}">
+          {{ isInCompareList(record.property.id) ? 'Remove from Compare' : 'Add to Compare' }}
+        </button>
+      </div>
+      <!-- Listing Details -->
+      <div class="card" (click)="navigateToListing(record.listing.id)">
+        <h3>Listing Details</h3>
+        <p>Description: {{ record.listing.description }}</p>
+        <p>Price: ${{ record.listing.price }}</p>
+        <p>Publication Date: {{ record.listing.publicationDate | date }}</p>
+        <p>Features:</p>
+        <ul>
+          <li *ngFor="let feature of getFeatures(record.listing.features)">
+            {{ feature.key }}: {{ feature.value }}
+          </li>
+        </ul>
+      </div>
+      <!-- User Details -->
+      <div class="card">
+        <h3>User Details</h3>
+        <p>Username: {{ record.user.username }}</p>
+        <p>Verified: {{ record.user.verified ? 'Yes' : 'No' }}</p>
+        <p>User Type: {{ getUserType(record.user.type) }}</p>
+      </div>
+    </div>
+
+</div>
+  <div class="pagination-controls-bottom">
+    <button [disabled]="page <= 1" (click)="previousPage()">Previous Page</button>
+    <!-- Button to navigate to compare properties -->
+    <button *ngIf="compareList.length === 2" class="compare-button" (click)="navigateToCompare()">Compare</button>
+    <button [disabled]="records.length < pageSize" (click)="nextPage()">Next Page</button>
+  </div>
+</div>
+<app-footer></app-footer>
