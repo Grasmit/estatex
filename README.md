@@ -26,7 +26,7 @@ EstateX is a modern, AI-powered real estate management system designed to stream
 
 ### Backend Setup
 ```bash
-cd Smart-Real-Estate/Backend
+cd estatex/Backend
 # Build and run with Docker
 ./RunDocker.bat
 # Or use docker-compose
@@ -35,7 +35,7 @@ sudo docker-compose up --build
 
 ### Frontend Setup
 ```bash
-cd Smart-Real-Estate/Frontend
+cd estatex/Frontend
 npm install
 npm start
 ```
